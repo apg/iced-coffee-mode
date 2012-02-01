@@ -3,7 +3,7 @@
 ;; Copyright (C) 2010 Chris Wanstrath
 
 ;; Version: 0.4.0
-;; Keywords: CoffeeScript major mode
+;; Keywords: CoffeeScript major mode, with Iced Coffee Script stuff
 ;; Author: Chris Wanstrath <chris@ozmm.org>
 ;; URL: http://github.com/defunkt/coffee-script
 
@@ -26,7 +26,7 @@
 ;;; Commentary
 
 ;; For commentary please see the README.md or
-;; http://github.com/defunkt/coffee-mode#readme
+;; http://github.com/apgwoz/iced-coffee-mode#readme
 
 ;;; Installation
 
@@ -347,12 +347,17 @@ If FILENAME is omitted, the current buffer's file name is used."
       '("then" "unless" "and" "or" "is"
         "isnt" "not" "of" "by" "where" "when"))
 
+;; IcedCoffeeScript keywords
+(defvar coffee-ics-keywords
+      '("await" "defer"))
+
 ;; Regular expression combining the above three lists.
 (defvar coffee-keywords-regexp (regexp-opt
                                 (append
                                  coffee-js-reserved
                                  coffee-js-keywords
-                                 coffee-cs-keywords) 'words))
+                                 coffee-cs-keywords
+                                 coffee-ics-keywords) 'words))
 
 
 ;; Create the list for font-lock. Each class of keyword is given a
